@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{  pick }}은 {{pick|length}} 글자</p>
+    <p>{{foods|join:","}}</p>
+    <p>{{name|upper|truncatewords:10}}</p>
+    
+    <p>메뉴판</p>
+    <ul>
+        {% for food in foods %}
+            <li> {{  food  }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <ul>
+        {% for food in foods %}
+            {% if food|length < 3 %}
+                <p>음식은 {{food|length}} 글자이다. </p>
+            {% else %}
+                <p>음식은 매우 길다.</p>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% if number < 10 %}
+        <p> {{number}}는 10 미만이다.</p>
+    {% elif 10 <= number < 20 %}
+        <p> {{number}}는 10 이상 20 미만이다.</p>
+    {% else %}
+        <p> {{number}}는 20 이상이다. </p>
+    {% endif %}
+    
+    {# 이것은 주석입니다. #}
+    {% comment "" %}
+        <p>
+            여기는 주석입니다.
+        </p>
+    {% endcomment %}
+
+    <a href="{% url 'articles:index' %}">홈으로</a>
+</body>
+</html>

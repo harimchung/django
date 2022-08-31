@@ -1,0 +1,27 @@
+{% load mathfilters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>계산결과</h1>
+    <div>{{first}} + {{second}} = {{first|add:second}}</div>
+    <div>{{first}} * {{second}} = {{first|mul:second}}</div>
+    <div>{{first}} - {{second}} = {{first|sub:second}}</div>
+    <div>
+        {% if second == 0 %}
+            계산할 수 없습니다
+        {% elif second != 0 %}
+            {{first}} / {{second}} = {{first|div:second}}
+        {% endif %}
+    </div>
+
+    {%for menu in menus%}
+        <p>{{}}번째 메뉴: {{menu}}</p>
+    {% endfor %}
+</body>
+</html>
