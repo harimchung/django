@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{%block content%}
+    <h1>this is index</h1>
+    <a class="btn btn-primary" href="{% url 'articles:new' %}">게시물 작성하러 가기</a>
+    <hr>
+
+    {% for article in articles %}
+        <h3>{{article.pk}} 번째 게시물<br></h3>
+        제목 : {{article.title}} <br>
+        내용 : {{article.content}} <br>
+        <a class="btn btn-primary" href="{% url 'articles:detail' article.pk %}">detail</a>
+        <a class="btn btn-primary" href="{% url 'articles:delete' article.pk %}">delete</a>
+        <a class="btn btn-primary" href="{% url 'articles:edit' article.pk %}">edit</a>
+        <hr>
+    {% endfor %}
+
+{%endblock content%}
